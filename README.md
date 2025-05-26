@@ -125,7 +125,7 @@ These folders are automatically generated when building vignettes or installing 
   Contains metadata about the installed vignette(s), such as `vignette.rds`.  
   This is used internally by R to register vignette availability and indexing.
 
-## R/ Directory
+## `R/`
 Contains all R code and documentation.
 
 ### `rPracticePkg-package.R`
@@ -219,7 +219,7 @@ After running `devtools::document()` and building the package, the following fil
 All these files are automatically managed and should generally not be edited manually (except for `example.cpp` and `Makevars`).  
 You may want to add `.o` and `.so` files to `.gitignore`, since they are machine-specific and recompiled on build.
 
-## data/
+## `data/`
 Contains `.rda` binary datasets to be used via `data()`.
 
 ### `example_data.rda`
@@ -234,7 +234,7 @@ save(example_data, file = "data/example_data.rda", version = 2)
 - `version = 2` ensures compatibility with R >= 2.4.0.
 - Always specify `version = 2` when including `.rda` files for cross-version support.
 
-## vignettes/
+## `vignettes/`
 Contains long-form documentation and usage examples in R Markdown.
 
 ### `rPracticePkg.Rmd`
