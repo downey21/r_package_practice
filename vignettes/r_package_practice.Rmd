@@ -1,0 +1,103 @@
+---
+title: "r_package_practice"
+author: "Dahun Seo"
+output: 
+  rmarkdown::html_vignette:
+    css: styles.css
+vignette: >
+  %\VignetteIndexEntry{r_package_practice}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Installation
+
+To install the package from GitHub with vignette support:
+
+```{r, eval = FALSE}
+devtools::install_github("downey21/r_package_practice", build_vignettes = TRUE)
+```
+
+# Overview
+
+This vignette demonstrates how to use functions in the **`r_package_practice`** package.  
+The package includes:
+
+- R functions with documentation via roxygen2
+- C++ functions integrated via Rcpp
+- An example dataset
+- A vignette (this one!)
+- Internal helper functions (not exported, but still accessible)
+
+# R Function Examples
+
+```{r}
+library(r_package_practice)
+
+# Multiply two matrices and scale by 10
+mat1 <- matrix(1:6, nrow = 2)
+mat2 <- matrix(1:6, nrow = 3)
+multiply_matrix_ten_times(mat1, mat2)
+```
+
+```{r}
+# Add two matrices element-wise
+plus_two_matrix(
+  matrix(1:4, nrow = 2),
+  matrix(5:8, nrow = 2)
+)
+```
+
+```{r}
+# Add matrices with NA check
+with_na <- matrix(c(1, NA, 3, 4), nrow = 2)
+plus_two_matrix(with_na, matrix(5:8, nrow = 2))  # Will print NA position
+```
+
+# Accessing Internal Functions
+
+Functions that are **not exported** (i.e., no `@export` in roxygen) can still be accessed using the triple-colon `:::` syntax.
+
+```{r}
+# Check for NA using internal function
+mat_with_na <- matrix(c(1, NA, 5, 9), nrow = 2)
+r_package_practice:::check_for_na(mat_with_na)
+```
+
+This is useful for testing or learning, though it's generally discouraged for production code.
+
+# Using C++ Functions Directly
+
+C++ functions defined in `src/` with `// [[Rcpp::export]]` are **automatically registered** and callable from R.
+
+```{r}
+# Use C++ function directly
+mat_a <- matrix(1:4, nrow = 2)
+mat_b <- matrix(5:8, nrow = 2)
+prod_cpp(mat_a, mat_b)  # C++ matrix multiplication
+```
+
+```{r}
+# Transpose-multiply: t(mat1) %*% mat2
+t_prod_cpp(mat_a, mat_b)
+```
+
+All C++ functions with `Rcpp::export` are accessible just like any R function after loading the package.
+
+# Example Data
+
+The package includes a simple example dataset:
+
+```{r}
+data(example_data)
+example_data
+```
+
+# Summary
+
+This vignette covered:
+
+- Calling R and C++ functions from the package
+- Accessing internal functions via `:::`
+- Working with included datasets
+- Using C++ for fast numerical operations

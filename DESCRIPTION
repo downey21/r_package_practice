@@ -1,0 +1,20 @@
+Package: r_package_practice
+Type: Package
+Title: Example R Package for Learning
+Version: 1.0.0
+Author: Dahun Seo
+Maintainer: Dahun Seo <downe7921@gmail.com>
+Description: This package demonstrates how to build a basic R package with Rcpp integration, example functions, included data, and a vignette.
+License: file LICENSE
+Depends: R (>= 4.1.0)
+Encoding: UTF-8
+LazyData: true
+Imports:
+    Rcpp
+Suggests:
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+LinkingTo:
+    Rcpp
+RoxygenNote:
