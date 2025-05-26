@@ -27,6 +27,7 @@ r_package_practice/
 │   ├── example.cpp
 │   ├── Makevars
 │   └── Makevars.win
+│   └── ...
 ├── vignettes/
 │   ├── rPracticePkg.Rmd
 │   └── styles.css
