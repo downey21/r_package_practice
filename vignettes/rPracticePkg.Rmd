@@ -1,11 +1,11 @@
 ---
-title: "r_package_practice"
+title: "rPracticePkg"
 author: "Dahun Seo"
 output: 
   rmarkdown::html_vignette:
     css: styles.css
 vignette: >
-  %\VignetteIndexEntry{r_package_practice}
+  %\VignetteIndexEntry{rPracticePkg}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -20,7 +20,7 @@ devtools::install_github("downey21/r_package_practice", build_vignettes = TRUE)
 
 # Overview
 
-This vignette demonstrates how to use functions in the **`r_package_practice`** package.  
+This vignette demonstrates how to use functions in the **`rPracticePkg`** package.  
 The package includes:
 
 - R functions with documentation via roxygen2
@@ -32,7 +32,7 @@ The package includes:
 # R Function Examples
 
 ```{r}
-library(r_package_practice)
+library(rPracticePkg)
 
 # Multiply two matrices and scale by 10
 mat1 <- matrix(1:6, nrow = 2)
@@ -61,7 +61,7 @@ Functions that are **not exported** (i.e., no `@export` in roxygen) can still be
 ```{r}
 # Check for NA using internal function
 mat_with_na <- matrix(c(1, NA, 5, 9), nrow = 2)
-r_package_practice:::check_for_na(mat_with_na)
+rPracticePkg:::check_for_na(mat_with_na)
 ```
 
 This is useful for testing or learning, though it's generally discouraged for production code.
@@ -74,12 +74,12 @@ C++ functions defined in `src/` with `// [[Rcpp::export]]` are **automatically r
 # Use C++ function directly
 mat_a <- matrix(1:4, nrow = 2)
 mat_b <- matrix(5:8, nrow = 2)
-prod_cpp(mat_a, mat_b)  # C++ matrix multiplication
+rPracticePkg:::prod_cpp(mat_a, mat_b)  # C++ matrix multiplication
 ```
 
 ```{r}
 # Transpose-multiply: t(mat1) %*% mat2
-t_prod_cpp(mat_a, mat_b)
+rPracticePkg:::t_prod_cpp(mat_a, mat_b)
 ```
 
 All C++ functions with `Rcpp::export` are accessible just like any R function after loading the package.

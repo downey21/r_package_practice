@@ -1,3 +1,3 @@
-#' @useDynLib r_package_practice
+#' @useDynLib rPracticePkg
 #' @importFrom Rcpp sourceCpp
 NULL

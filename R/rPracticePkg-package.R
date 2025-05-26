@@ -1,9 +1,9 @@
-#' r_package_practice: Example R Package for Learning
+#' rPracticePkg: Example R Package for Learning
 #'
 #' This package demonstrates basic R package development.
 #'
 #' @details
-#' The goal of \code{r_package_practice} is to provide a minimal yet complete example 
+#' The goal of \code{rPracticePkg} is to provide a minimal yet complete example 
 #' of how to build an R package from scratch. It includes:
 #' \itemize{
 #'   \item A simple R function (\code{add}) with roxygen2 documentation
@@ -13,11 +13,11 @@
 #' }
 #'
 #' For a complete list of functions, use:
-#' \code{library(help = "r_package_practice")}
+#' \code{library(help = "rPracticePkg")}
 #'
 #' @author
 #' Dahun Seo
 #'
-#' @aliases r_package_practice
+#' @aliases rPracticePkg
 #' @keywords package
 "_PACKAGE"

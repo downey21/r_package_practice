@@ -1,4 +1,4 @@
-Package: r_package_practice
+Package: rPracticePkg
 Type: Package
 Title: Example R Package for Learning
 Version: 1.0.0
@@ -17,4 +17,4 @@ Suggests:
 VignetteBuilder: knitr
 LinkingTo:
     Rcpp
-RoxygenNote:
+RoxygenNote: 7.3.2
